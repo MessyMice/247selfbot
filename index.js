@@ -10,7 +10,7 @@ const gradient = require('gradient-string');
 
 //main settings
 client.on("ready", () => {
-    rpcGenerator.getRpcImage(CLIENT_ID, `logo`)
+    rpcGenerator.getRpcImage(CLIENT_ID, `IMAGE_NAME`)
     .then(image => {
         let presence = new rpcGenerator.Rpc()
         .setName("twitch")
