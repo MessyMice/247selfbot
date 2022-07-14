@@ -1,0 +1,27 @@
+{
+  "name": "247streamer",
+  "version": "1.0.0",
+  "description": "![Vansh 247 Streamer](https://media.discordapp.net/attachments/951090138014965793/952174598709993502/247.jpg) ## This is for Education Purpose Only",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MessyMice/247streamer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MessyMice/247streamer/issues"
+  },
+  "homepage": "https://github.com/MessyMice/247streamer#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "discord.js-selfbot-v13": "^2.3.74",
+    "discordrpcgenerator": "^1.2.0",
+    "express": "^4.18.1",
+    "gradient-string": "^2.0.1",
+    "prism-media": "^1.3.4"
+  }
+}

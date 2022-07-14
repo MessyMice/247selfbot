@@ -1,13 +1,16 @@
 //packages
-const Discord = require("discord.js-selfbot-v11");
-const rpcGenerator = require("discordrpcgenerator")
+const Discord = require("discord.js-selfbot-v13");
+const rpcGenerator = require("discordrpcgenerator");
+const chalk = require("chalk")
 const TOKEN = (process.env.token)
 const CLIENT_ID = (process.env.clientid)
-const client = new Discord.Client()
+const client = new Discord.Client({ checkUpdate: false })
+const gradient = require('gradient-string');
+
 
 //main settings
 client.on("ready", () => {
-    rpcGenerator.getRpcImage(CLIENT_ID, IMAGE_NAME)
+    rpcGenerator.getRpcImage(CLIENT_ID, `IMAGE_NAME`)
     .then(image => {
         let presence = new rpcGenerator.Rpc()
         .setName("twitch")
@@ -20,27 +23,49 @@ client.on("ready", () => {
  
         client.user.setPresence(presence.toDiscord())
     }).catch(console.error)
-  console.log(`${client.user.username} Successfully Logged in!`)
+  console.log(gradient('red', 'orange', 'blue', 'green')(`
+██████╗░░░██╗██╗███████╗
+╚════██╗░██╔╝██║╚════██║
+░░███╔═╝██╔╝░██║░░░░██╔╝
+██╔══╝░░███████║░░░██╔╝░
+███████╗╚════██║░░██╔╝░░
+╚══════╝░░░░░╚═╝░░╚═╝░░░
+${client.user.tag} has sucessfully logined`))
 })
 
-//messages
-client.on("message", message => {
-  let messageArray = message.content.split(" ")
-  let cmd = messageArray[0].replace(process.env.prefix, "")
-  let args = messageArray.slice(1)
-  if(!message.content.startsWith(process.env.prefix)) return;
-  if (cmd === "ping") {
-    message.channel.send(`🏓 - Pong! ${client.ping}ms! `)
-  }
-});
-
+/* Commands */
 client.on('messageCreate', async (message) => {
-  const userId = message.author.id;
-  const myId = client.user.id;
-  if (userId === myId) {
-    //command code
-  } 
-});
+  if (message.author.id === client.user.id) {
+    const prefix = process.env.prefix || ';'
+    const args = message.content.split(' ');
+
+    // Ping Command
+    if (message.content.startsWith(`${prefix}ping`)) {
+      message.channel.send({
+        content: `Pong - ${client.ws.ping}ms`
+      });
+    }
+
+    // Help Command
+    if (message.content.startsWith(`${prefix}help`)) {
+      message.channel.send(`**Help Menu**\n\n${prefix}help\n :: shows help menu\n :: no usages\n\n${prefix}ping\n ::shows selfbot latency\n :: no usages\n\n${prefix}spam\n :: spams a message\n :: \`${prefix}spam <amount> <message>\``);
+    }
+
+    // Spam Command
+    if (message.content.startsWith(`${prefix}spam`)) {
+      await message.delete();
+      const amount = parseInt(args[1]);
+      const spamMessage = message.content.split(`${amount}`)[1];
+      if (amount && spamMessage) {
+        for (let x = 0; x < amount; x++) {
+          message.channel.send({
+            content: `${spamMessage}`
+          })
+        }
+      }
+    }
+  }
+})
 
 
 
@@ -57,3 +82,23 @@ app.get(`/`, (req, res) => res.send(`Yo!`))
 app.listen(port, () =>
 console.log(`ExpressApp is working`)
 );
+
+          // #1
+process.on("unhandledRejection", (reason, promise) => {
+  console.log("[-]: " + reason)
+});
+
+// #2
+process.on("uncaughtException", (err) => {
+  console.log("[-]: " + err)
+});
+
+// #3
+process.on('uncaughtExceptionMonitor', (err, origin) => {
+  console.log("[-]: " + err);
+});
+
+// #4
+process.on('multipleResolves', (type, promise, reason) => {
+  console.log("[-]: ", type, promise, reason);
+});
