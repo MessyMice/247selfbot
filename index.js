@@ -1,7 +1,6 @@
 //packages
-const Discord = require("discord.js-selfbot-v13");
+const Discord = require("discord.js-selfbot-v11");
 const rpcGenerator = require("discordrpcgenerator");
-const chalk = require("chalk")
 const TOKEN = (process.env.token)
 const CLIENT_ID = (process.env.clientid)
 const client = new Discord.Client({ checkUpdate: false })
@@ -10,7 +9,7 @@ const gradient = require('gradient-string');
 
 //main settings
 client.on("ready", () => {
-    rpcGenerator.getRpcImage(CLIENT_ID, `IMAGE_NAME`)
+    rpcGenerator.getRpcImage(CLIENT_ID, `logo`)
     .then(image => {
         let presence = new rpcGenerator.Rpc()
         .setName("twitch")
@@ -18,11 +17,12 @@ client.on("ready", () => {
         .setType("STREAMING")
         .setApplicationId(CLIENT_ID)
         .setAssetsLargeImage(image.id)
-        .setAssetsLargeText("lower text")
-        .setDetails("upper text")
+        .setAssetsLargeText("Bhagwaa")
+        .setDetails("# Proud Sanatani")
  
         client.user.setPresence(presence.toDiscord())
     }).catch(console.error)
+  
   console.log(gradient('red', 'orange', 'blue', 'green')(`
 ██████╗░░░██╗██╗███████╗
 ╚════██╗░██╔╝██║╚════██║
@@ -34,16 +34,14 @@ ${client.user.tag} has sucessfully logined`))
 })
 
 /* Commands */
-client.on('messageCreate', async (message) => {
+client.on('message', async (message) => {
   if (message.author.id === client.user.id) {
-    const prefix = process.env.prefix || ';'
+    const prefix = process.env.prefix
     const args = message.content.split(' ');
 
     // Ping Command
     if (message.content.startsWith(`${prefix}ping`)) {
-      message.channel.send({
-        content: `Pong - ${client.ws.ping}ms`
-      });
+      message.channel.send(`🏓 Ping - ${client.ping}ms`);
     }
 
     // Help Command
@@ -58,9 +56,8 @@ client.on('messageCreate', async (message) => {
       const spamMessage = message.content.split(`${amount}`)[1];
       if (amount && spamMessage) {
         for (let x = 0; x < amount; x++) {
-          message.channel.send({
-            content: `${spamMessage}`
-          })
+          message.channel.send(`${spamMessage}`
+          )
         }
       }
     }

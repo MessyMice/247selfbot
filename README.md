@@ -5,7 +5,7 @@
 This is a 24/7 StreamerBot for Discord Account Coded in NodeJS and coded by MessyMice
 ## Important Things
 - You must have installed NodeJS 
-- You must have express, discord.js-selfbot-v11 & discord rpc generator
+- You must have express, discord.js-selfbot-v11 & discord rpc generator, express & gradient-string as these are packages used in this 24/7streamer
 ## Installation
 - Open Replit website from links
 - Create/Login Account
@@ -14,6 +14,10 @@ This is a 24/7 StreamerBot for Discord Account Coded in NodeJS and coded by Mess
 ## Links
 - [NodeJS](https://nodejs.org/en/)
 - [Discord](https://discord.com/)
-- [DiscordJS](https://discord.js.org/#/)
+- [discord.js-selfbot-v11](https://www.npmjs.com/package/discord.js-selfbot-v11)
 - [Replit](https://replit.com/)
 - [DiscordDev](https://discord.com/developers)
+- [Gradient String](https://www.npmjs.com/package/gradient-string)
+- [Express](https://expressjs.com/)
+- [Discord RPC Generator](https://www.npmjs.com/package/discordrpcgenerator)
+- [Twitch](https://twitch.tv)
