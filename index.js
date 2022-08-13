@@ -1,15 +1,18 @@
+const settings = require("./config/settings.js");
+const author = require("./config/author.js");
 //packages
 const Discord = require("discord.js-selfbot-v11");
 const rpcGenerator = require("discordrpcgenerator");
-const TOKEN = (process.env.token)
-const CLIENT_ID = (process.env.clientid)
+const TOKEN = (settings.bot.token)
+const CLIENT_ID = (settings.status.client)
+const IMAGE_NAME = (settings.status.imageName)
 const client = new Discord.Client({ checkUpdate: false })
 const gradient = require('gradient-string');
 
 
 //main settings
 client.on("ready", () => {
-    rpcGenerator.getRpcImage(CLIENT_ID, `IMAGE_NAME`)
+    rpcGenerator.getRpcImage(CLIENT_ID, IMAGE_NAME)
     .then(image => {
         let presence = new rpcGenerator.Rpc()
         .setName("twitch")
@@ -17,8 +20,9 @@ client.on("ready", () => {
         .setType("STREAMING")
         .setApplicationId(CLIENT_ID)
         .setAssetsLargeImage(image.id)
-        .setAssetsLargeText("lower text")
-        .setDetails("upper text")
+        .setAssetsLargeText(settings.text.lower)
+        .setDetails(settings.text.upper)
+        .setState(settings.text.middle)
  
         client.user.setPresence(presence.toDiscord())
     }).catch(console.error)
@@ -36,13 +40,18 @@ ${client.user.tag} has sucessfully logined`))
 /* Commands */
 client.on('message', async (message) => {
   if (message.author.id === client.user.id) {
-    const prefix = process.env.prefix
+    const prefix = settings.bot.prefix
     const args = message.content.split(' ');
 
     // Ping Command
     if (message.content.startsWith(`${prefix}ping`)) {
       message.channel.send(`🏓 Ping - ${client.ping}ms`);
     }
+
+    // About Command
+    if (message.content.startsWith(`${prefix}about`)) {
+      message.channel.send(`***__About Menu__***\n:: This selfbot is coded by ${author.name}\n:: It's repo is ${author.repo}\n:: Your ping is ${client.ping}ms right now\n:: Your prefix is \`${prefix}\``);
+    }    
 
     // Help Command
     if (message.content.startsWith(`${prefix}help`)) {
@@ -69,7 +78,7 @@ client.on('message', async (message) => {
 // login
 client.login(TOKEN)
 
-//express
+//express 
 const express = require("express")
 const app = express();
 const port = process.env.PORT || 3000
