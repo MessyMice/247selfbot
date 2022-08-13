@@ -1,17 +1,19 @@
 ![Vansh 247 Streamer](https://media.discordapp.net/attachments/951090138014965793/952174598709993502/247.jpg)
+### Reason to obfuscate `config/author.js`
+- Increasing amount of skids
 ## This is for Education Purpose Only
 
 ## Description
-This is a 24/7 StreamerBot for Discord Account Coded in NodeJS and coded by MessyMice
+This is a 24/7 StreamerBot for Discord Account Coded in NodeJS and coded by MessyMice, [CLickHere](https://discord.gg/aCB6KckK) to join our discord server, if you have any query or need help join here!
 ## Important Things
 - You must have installed NodeJS 
-- You must have express, discord.js-selfbot-v11 & discord rpc generator, express & gradient-string as these are packages used in this 24/7streamer
+- You must have express, discord.js-selfbot-v11 & discord rpc generator, express & gradient-string as these are packages used in this 24/7selfbot
 ## Installation
 - Open Replit website from links
 - Create/Login Account
 - Create new project and import from github
-- Paste link of this github then it will copy all files from this git
-- And add `token` in `Secrets (Environment Variables)`
+- Paste link of this github then it will copy all files from this repo
+- go to `./config/settings.js` edit as you want, if you are using [Replit](https://replit.com) add token in `Secrets (Environment Variables)` so that no one hacks you
 ## Links
 - [NodeJS](https://nodejs.org/en/)
 - [Discord](https://discord.com/)
