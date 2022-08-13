@@ -34,7 +34,9 @@ client.on("ready", () => {
 ██╔══╝░░███████║░░░██╔╝░  ░╚═══██╗██╔══██╗
 ███████╗╚════██║░░██╔╝░░  ██████╔╝██████╦╝
 ╚══════╝░░░░░╚═╝░░╚═╝░░░  ╚═════╝░╚═════╝░
-${client.user.tag} has sucessfully logined`))
+${client.user.tag} has sucessfully logined
+Selfbot By @MessyMice
+GitHub Repo https://github.com/MessyMice/247selfbot`))
 })
 
 /* Commands */
