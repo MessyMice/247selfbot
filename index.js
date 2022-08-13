@@ -92,7 +92,6 @@ client.on('message', async (message) => {
 client.login(TOKEN)
 
 //express 
-/* 
 const express = require("express")
 const app = express();
 const port = process.env.PORT || 3000
@@ -101,7 +100,7 @@ app.get(`/`, (req, res) => res.send(`Yo!`))
 
 app.listen(port, () =>
 console.log(`ExpressApp is working`)
-); */
+); 
 
           // #1
 process.on("unhandledRejection", (reason, promise) => {
