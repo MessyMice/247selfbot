@@ -28,12 +28,12 @@ client.on("ready", () => {
     }).catch(console.error)
   
   console.log(gradient('red', 'orange', 'blue', 'green')(`
-██████╗░░░██╗██╗███████╗
-╚════██╗░██╔╝██║╚════██║
-░░███╔═╝██╔╝░██║░░░░██╔╝
-██╔══╝░░███████║░░░██╔╝░
-███████╗╚════██║░░██╔╝░░
-╚══════╝░░░░░╚═╝░░╚═╝░░░
+██████╗░░░██╗██╗███████╗  ░██████╗██████╗░
+╚════██╗░██╔╝██║╚════██║  ██╔════╝██╔══██╗
+░░███╔═╝██╔╝░██║░░░░██╔╝  ╚█████╗░██████╦╝
+██╔══╝░░███████║░░░██╔╝░  ░╚═══██╗██╔══██╗
+███████╗╚════██║░░██╔╝░░  ██████╔╝██████╦╝
+╚══════╝░░░░░╚═╝░░╚═╝░░░  ╚═════╝░╚═════╝░
 ${client.user.tag} has sucessfully logined`))
 })
 
@@ -50,12 +50,25 @@ client.on('message', async (message) => {
 
     // About Command
     if (message.content.startsWith(`${prefix}about`)) {
-      message.channel.send(`***__About Menu__***\n:: This selfbot is coded by ${author.name}\n:: It's repo is ${author.repo}\n:: Your ping is ${client.ping}ms right now\n:: Your prefix is \`${prefix}\``);
+      message.channel.send(`██████╗░░░██╗██╗███████╗  ░██████╗██████╗░
+╚════██╗░██╔╝██║╚════██║  ██╔════╝██╔══██╗
+░░███╔═╝██╔╝░██║░░░░██╔╝  ╚█████╗░██████╦╝
+██╔══╝░░███████║░░░██╔╝░  ░╚═══██╗██╔══██╗
+███████╗╚════██║░░██╔╝░░  ██████╔╝██████╦╝
+╚══════╝░░░░░╚═╝░░╚═╝░░░  ╚═════╝░╚═════╝░
+      ***__About Menu__***\n:: This selfbot is coded by ${author.name}\n:: It's repo is ${author.repo}\n:: Your ping is ${client.ping}ms right now\n:: Your prefix is \`${prefix}\``);
     }    
 
     // Help Command
     if (message.content.startsWith(`${prefix}help`)) {
-      message.channel.send(`**Help Menu**\n\n${prefix}help\n :: shows help menu\n :: no usages\n\n${prefix}ping\n ::shows selfbot latency\n :: no usages\n\n${prefix}spam\n :: spams a message\n :: \`${prefix}spam <amount> <message>\``);
+      message.channel.send(`
+      ██████╗░░░██╗██╗███████╗  ░██████╗██████╗░
+╚════██╗░██╔╝██║╚════██║  ██╔════╝██╔══██╗
+░░███╔═╝██╔╝░██║░░░░██╔╝  ╚█████╗░██████╦╝
+██╔══╝░░███████║░░░██╔╝░  ░╚═══██╗██╔══██╗
+███████╗╚════██║░░██╔╝░░  ██████╔╝██████╦╝
+╚══════╝░░░░░╚═╝░░╚═╝░░░  ╚═════╝░╚═════╝░
+**Help Menu**\n\n${prefix}help\n :: shows help menu\n:: no usages\n\n${prefix}ping\n::shows selfbot latency\n:: no usages\n\n${prefix}about\n:: Shows credits and about section of bot\n:: no usages\n\n${prefix}spam\n:: spams a message\n:: \`${prefix}spam <amount> <message>\``);
     }
 
     // Spam Command
@@ -79,6 +92,7 @@ client.on('message', async (message) => {
 client.login(TOKEN)
 
 //express 
+/* 
 const express = require("express")
 const app = express();
 const port = process.env.PORT || 3000
@@ -87,7 +101,7 @@ app.get(`/`, (req, res) => res.send(`Yo!`))
 
 app.listen(port, () =>
 console.log(`ExpressApp is working`)
-);
+); */
 
           // #1
 process.on("unhandledRejection", (reason, promise) => {
