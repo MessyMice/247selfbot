@@ -1,49 +1,57 @@
-const settings = require("./config/settings.js");
+/* Configs */
+const statusText = require("./config/statusText.js");
+const bot = require("./config/bot.js");
+const clientJS = require("./config/client.js");
 const author = require("./config/author.js");
-//packages
+require("dotenv").config();
+
+/* Packages */
 const Discord = require("discord.js-selfbot-v11");
 const rpcGenerator = require("discordrpcgenerator");
-const TOKEN = (settings.bot.token)
-const CLIENT_ID = (settings.status.client)
-const IMAGE_NAME = (settings.status.imageName)
-const client = new Discord.Client({ checkUpdate: false })
-const gradient = require('gradient-string');
+const gradient = require("gradient-string");
 
-
-//main settings
+/* Main Client */
+const client = new Discord.Client({ checkUpdate: false });
 client.on("ready", () => {
-    rpcGenerator.getRpcImage(CLIENT_ID, IMAGE_NAME)
-    .then(image => {
-        let presence = new rpcGenerator.Rpc()
+  rpcGenerator
+    .getRpcImage(clientJS.id, clientJS.image_name)
+    .then((image) => {
+      let presence = new rpcGenerator.Rpc()
         .setName("twitch")
-        .setUrl(process.env.twitchurl)
+        .setUrl(bot.twitchURL)
         .setType("STREAMING")
-        .setApplicationId(CLIENT_ID)
-        .setAssetsLargeImage(image.id)
-        .setAssetsLargeText(settings.text.lower)
-        .setDetails(settings.text.upper)
-        .setState(settings.text.middle)
- 
-        client.user.setPresence(presence.toDiscord())
-    }).catch(console.error)
-  
-  console.log(gradient('red', 'orange', 'blue', 'green')(`
-██████╗░░░██╗██╗███████╗  ░██████╗██████╗░
-╚════██╗░██╔╝██║╚════██║  ██╔════╝██╔══██╗
-░░███╔═╝██╔╝░██║░░░░██╔╝  ╚█████╗░██████╦╝
-██╔══╝░░███████║░░░██╔╝░  ░╚═══██╗██╔══██╗
-███████╗╚════██║░░██╔╝░░  ██████╔╝██████╦╝
-╚══════╝░░░░░╚═╝░░╚═╝░░░  ╚═════╝░╚═════╝░
-${client.user.tag} has sucessfully logined
-Selfbot By @MessyMice
-GitHub Repo https://github.com/MessyMice/247selfbot`))
-})
+        .setApplicationId(clientJS.id)
+        .setDetails(statusText.upper)
+        .setState(statusText.middle)
+        .setAssetsLargeText(statusText.lower);
+
+      client.user.setPresence(presence.toDiscord());
+    })
+    .catch(console.error);
+  console.log(
+    gradient(
+      "red",
+      "orange",
+      "blue",
+      "green"
+    )(`
+    ██████╗░░░██╗██╗███████╗  ░██████╗██████╗░
+    ╚════██╗░██╔╝██║╚════██║  ██╔════╝██╔══██╗
+    ░░███╔═╝██╔╝░██║░░░░██╔╝  ╚█████╗░██████╦╝
+    ██╔══╝░░███████║░░░██╔╝░  ░╚═══██╗██╔══██╗
+    ███████╗╚════██║░░██╔╝░░  ██████╔╝██████╦╝
+    ╚══════╝░░░░░╚═╝░░╚═╝░░░  ╚═════╝░╚═════╝░
+    ${client.user.tag} has sucessfully logined
+    Selfbot By @MessyMice
+    GitHub Repo https://github.com/MessyMice/247selfbot`)
+  );
+});
 
 /* Commands */
-client.on('message', async (message) => {
+client.on("message", async (message) => {
   if (message.author.id === client.user.id) {
-    const prefix = settings.bot.prefix
-    const args = message.content.split(' ');
+    const prefix = bot.prefix;
+    const args = message.content.split(" ");
 
     // Ping Command
     if (message.content.startsWith(`${prefix}ping`)) {
@@ -53,24 +61,24 @@ client.on('message', async (message) => {
     // About Command
     if (message.content.startsWith(`${prefix}about`)) {
       message.channel.send(`██████╗░░░██╗██╗███████╗  ░██████╗██████╗░
-╚════██╗░██╔╝██║╚════██║  ██╔════╝██╔══██╗
-░░███╔═╝██╔╝░██║░░░░██╔╝  ╚█████╗░██████╦╝
-██╔══╝░░███████║░░░██╔╝░  ░╚═══██╗██╔══██╗
-███████╗╚════██║░░██╔╝░░  ██████╔╝██████╦╝
-╚══════╝░░░░░╚═╝░░╚═╝░░░  ╚═════╝░╚═════╝░
-      ***__About Menu__***\n:: This selfbot is coded by ${author.name}\n:: It's repo is ${author.repo}\n:: Your ping is ${client.ping}ms right now\n:: Your prefix is \`${prefix}\``);
-    }    
+  ╚════██╗░██╔╝██║╚════██║  ██╔════╝██╔══██╗
+  ░░███╔═╝██╔╝░██║░░░░██╔╝  ╚█████╗░██████╦╝
+  ██╔══╝░░███████║░░░██╔╝░  ░╚═══██╗██╔══██╗
+  ███████╗╚════██║░░██╔╝░░  ██████╔╝██████╦╝
+  ╚══════╝░░░░░╚═╝░░╚═╝░░░  ╚═════╝░╚═════╝░
+        ***__About Menu__***\n:: This selfbot is coded by ${author.name}\n:: It's repo is ${author.repo}\n:: Your ping is ${client.ping}ms right now\n:: Your prefix is \`${prefix}\``);
+    }
 
     // Help Command
     if (message.content.startsWith(`${prefix}help`)) {
       message.channel.send(`
-      ██████╗░░░██╗██╗███████╗  ░██████╗██████╗░
-╚════██╗░██╔╝██║╚════██║  ██╔════╝██╔══██╗
-░░███╔═╝██╔╝░██║░░░░██╔╝  ╚█████╗░██████╦╝
-██╔══╝░░███████║░░░██╔╝░  ░╚═══██╗██╔══██╗
-███████╗╚════██║░░██╔╝░░  ██████╔╝██████╦╝
-╚══════╝░░░░░╚═╝░░╚═╝░░░  ╚═════╝░╚═════╝░
-**Help Menu**\n\n${prefix}help\n :: shows help menu\n:: no usages\n\n${prefix}ping\n::shows selfbot latency\n:: no usages\n\n${prefix}about\n:: Shows credits and about section of bot\n:: no usages\n\n${prefix}spam\n:: spams a message\n:: \`${prefix}spam <amount> <message>\``);
+        ██████╗░░░██╗██╗███████╗  ░██████╗██████╗░
+  ╚════██╗░██╔╝██║╚════██║  ██╔════╝██╔══██╗
+  ░░███╔═╝██╔╝░██║░░░░██╔╝  ╚█████╗░██████╦╝
+  ██╔══╝░░███████║░░░██╔╝░  ░╚═══██╗██╔══██╗
+  ███████╗╚════██║░░██╔╝░░  ██████╔╝██████╦╝
+  ╚══════╝░░░░░╚═╝░░╚═╝░░░  ╚═════╝░╚═════╝░
+  **Help Menu**\n\n${prefix}help\n:: shows help menu\n:: no usages\n\n${prefix}ping\n::shows selfbot latency\n:: no usages\n\n${prefix}about\n:: Shows credits and about section of bot\n:: no usages\n\n${prefix}spam\n:: spams a message\n:: \`${prefix}spam <amount> <message>\``);
     }
 
     // Spam Command
@@ -80,46 +88,47 @@ client.on('message', async (message) => {
       const spamMessage = message.content.split(`${amount}`)[1];
       if (amount && spamMessage) {
         for (let x = 0; x < amount; x++) {
-          message.channel.send(`${spamMessage}`
-          )
+          message.channel.send(`${spamMessage}`);
         }
       }
     }
   }
-})
+});
 
+/* Login */
+client.login(bot.token);
 
+/* Express */
+const express = require("express");
+const path = require("path");
 
-// login
-client.login(TOKEN)
-
-//express 
-const express = require("express")
 const app = express();
-const port = process.env.PORT || 3000
+const server = require("http").createServer(app);
 
-app.get(`/`, (req, res) => res.send(`Yo!`))
+app.use(express.static(path.join(__dirname + "/public")));
 
-app.listen(port, () =>
-console.log(`ExpressApp is working`)
-); 
+server.listen(bot.port);
 
-          // #1
+console.log(
+  `express app is working & listening to https://localhost:${bot.port}/`
+);
+
+// #1
 process.on("unhandledRejection", (reason, promise) => {
-  console.log("[-]: " + reason)
+  console.log("[-]: " + reason);
 });
 
 // #2
 process.on("uncaughtException", (err) => {
-  console.log("[-]: " + err)
+  console.log("[-]: " + err);
 });
 
 // #3
-process.on('uncaughtExceptionMonitor', (err, origin) => {
+process.on("uncaughtExceptionMonitor", (err, origin) => {
   console.log("[-]: " + err);
 });
 
 // #4
-process.on('multipleResolves', (type, promise, reason) => {
+process.on("multipleResolves", (type, promise, reason) => {
   console.log("[-]: ", type, promise, reason);
 });
