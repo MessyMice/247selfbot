@@ -1,6 +1,6 @@
 module.exports = {
   bot: {
-    token: process.env.token || "your-token-goes-here",
+    token: process.env.token,
     prefix: process.env.prefix || "enter-prefix"
   },
   url: {
