@@ -1,6 +1,4 @@
 ![Vansh 247 Streamer](https://media.discordapp.net/attachments/951090138014965793/952174598709993502/247.jpg)
-### Reason to obfuscate `config/author.js`
-- Increasing amount of skids
 ## This is for Education Purpose Only
 
 ## Description
