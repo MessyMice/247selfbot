@@ -11,7 +11,7 @@ This is a 24/7 StreamerBot for Discord Account Coded in NodeJS and coded by Mess
 - Create/Login Account
 - Create new project and import from github
 - Paste link of this github then it will copy all files from this repo
-- go to `./config/settings.js` edit as you want, if you are using [Replit](https://replit.com) add token in `Secrets (Environment Variables)` so that no one hacks you
+- go to `./config/` edit as you want, if you are using [Replit](https://replit.com) add token in `Secrets (Environment Variables)` so that no one hacks you
 ## Links
 - [NodeJS](https://nodejs.org/en/)
 - [Discord](https://discord.com/)
