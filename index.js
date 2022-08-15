@@ -55,7 +55,7 @@ client.on("message", async (message) => {
 
     // Ping Command
     if (message.content.startsWith(`${prefix}ping`)) {
-      message.channel.send(`🏓 Ping - ${client.ping}ms`);
+      message.channel.send(`🏓 Pong - ${client.ping}ms`);
     }
 
     // About Command
