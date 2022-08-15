@@ -11,6 +11,7 @@ This is a 24/7 StreamerBot for Discord Account Coded in NodeJS and coded by Mess
 - Create new project and import from github
 - Paste link of this github then it will copy all files from this repo
 - go to `./config/` edit as you want, if you are using [Replit](https://replit.com) add token in `Secrets (Environment Variables)` so that no one hacks you
+- If you are using [Replit](https://replit.com) remove `require("dotenv").config();` from the js files, it is unnecessary for replit
 ## Links
 - [NodeJS](https://nodejs.org/en/)
 - [Discord](https://discord.com/)
