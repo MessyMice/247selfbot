@@ -1,5 +1,4 @@
 ![MessyMice 247 Streamer](https://media.discordapp.net/attachments/998191531376783360/1008672652531077160/dkodj.jpg)
-## This is for Education Purpose Only
 
 ## Description
 This is a 24/7 StreamerBot for Discord Account Coded in NodeJS and coded by MessyMice, [CLickHere](https://discord.gg/aCB6KckK) to join our discord server, if you have any query or need help join here!
