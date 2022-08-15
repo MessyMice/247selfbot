@@ -101,16 +101,17 @@ client.login(bot.token);
 /* Express */
 const express = require("express");
 const path = require("path");
+const port = bot.port;
 
 const app = express();
 const server = require("http").createServer(app);
 
 app.use(express.static(path.join(__dirname + "/public")));
 
-server.listen(bot.port);
+server.listen(port);
 
 console.log(
-  `express app is working & listening to https://localhost:${bot.port}/`
+  `express app is working & listening to https://localhost:${port}/`
 );
 
 // #1
