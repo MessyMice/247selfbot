@@ -8,7 +8,7 @@ This is a 24/7 StreamerBot for Discord Account Coded in NodeJS and coded by Mess
 ## Installation for Desktop
 - Extrack the files & keep it in folder don't keep spaces in folder's name like `folder_name` not like `folder name`
 - do cmd `npm i discordprcgenerator discord.js-selfbot-v11 gradient-string`, it will isntall packages for selfbot
-- and near `Line 101` or later before there will be line starting from `/* Express */` & till `console.log(`express app is working & listening to https://localhost:${port}/`);` remove this
+- and near `Line 101` or later before there will be line starting from `/* Express */` & till `console.log("express app is working & listening to https://localhost:${port}/");` remove this
 - To Run the bot do cmd `node .`
 ## Installation
 - Open Replit website from links
