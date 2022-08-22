@@ -1,3 +1,4 @@
+language = "nodejs"
 run = "node ."
 
 [nix]
