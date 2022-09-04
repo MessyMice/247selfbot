@@ -1,5 +1,5 @@
 language = "nodejs"
-run = "node ."
+run = "cd src && node ."
 
 [nix]
 channel = "stable-22_05"
