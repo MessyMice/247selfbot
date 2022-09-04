@@ -1,0 +1,30 @@
+{
+  "name": "247selfbot",
+  "version": "5.0.0",
+  "description": "Selfbot for Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd src && node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MessyMice/247selfbot.git"
+  },
+  "author": "MessyMice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MessyMice/247selfbot/issues"
+  },
+  "homepage": "https://github.com/MessyMice/247selfbot#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "discord.js-selfbot-v11": "^11.5.1",
+    "discordrpcgenerator": "^1.2.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "gradient-string": "^2.0.1",
+    "http": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
