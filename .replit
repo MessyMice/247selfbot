@@ -2,4 +2,4 @@ language = "nodejs"
 run = "cd src && node ."
 
 [nix]
-channel = "stable-22_05"
+channel = "stable-21_11"
