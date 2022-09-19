@@ -17,7 +17,7 @@ npm i discord.js-v11-selfbot discordrpcgenerator gradient-string chalk@4 dotenv 
 cd src && node .
 ```
 # Editing Text
-##### Go to `src/core/settings.js`& Edit From `Line 4` to` `Line 23`
+##### Go to `src/core/settings.js`& Edit From `Line 4` to `Line 23`
 ```js
 module.exports = {
   bot: {
