@@ -10,8 +10,8 @@
 #### `discord.js-v11-selfbot`, `discordrpcgenerator`, `gradient-string`, `chalk@4`, `dotenv`, `path`, `fs`
 
 # Type These in bash / Shell
-#### `npm i discord.js-v11-selfbot discordrpcgenerator gradient-string chalk@4 dotenv path fs`
-#### `cd src && node .`
+#### ```npm i discord.js-v11-selfbot discordrpcgenerator gradient-string chalk@4 dotenv path fs```
+#### ```cd src && node .```
 
 ## Links
 - [NodeJS](https://nodejs.org/en/)
