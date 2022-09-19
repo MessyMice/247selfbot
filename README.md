@@ -40,6 +40,7 @@ module.exports = {
   },
 };
 ```
+#### If you are using `VS Code` You can enter token in `settings.js` or If you are using [Replit](https://replit.com/) then its Highly Recommended to use `.env/Secret Environments` or anyone can heck u
 
 
 ## Links
