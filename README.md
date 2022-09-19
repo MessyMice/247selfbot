@@ -16,6 +16,31 @@ npm i discord.js-v11-selfbot discordrpcgenerator gradient-string chalk@4 dotenv 
 ```bash
 cd src && node .
 ```
+# Editing Text
+##### Go to `src/core/settings.js`& Edit From `Line 4` to` `Line 23`
+```js
+module.exports = {
+  bot: {
+    token: process.env.token || "your-token-goes-here",
+    prefix: "247sb ",
+    clientID: process.env.CLIENT_ID || "client-id",
+    imageName: "image-name",
+    type: "STREAMING",
+  },
+  url: {
+    twitch: "https://twitch.tv/discord",
+  },
+  express: {
+    port: process.env.PORT || "6969",
+  },
+  text: {
+    upper: "UpperText",
+    middle: "MiddleText",
+    lower: "LowerText",
+  },
+};
+```
+
 
 ## Links
 - [NodeJS](https://nodejs.org/en/)
