@@ -4,7 +4,7 @@
 ### Yes, You are at right Place
 
 # Description
-#### 247Selfbot / 247Streamer is a bot for your discord account. Yes, selfbots are banned on Discord but This Selfbot is very less detactable. I personally use this selfbot on my Discord Account `𝐓𝐗™〢𝐍σт𝐘συя𝓥𝞪η𝓢♄♔🥀#1337`. Usually people say if your account is active more than 1 month You will get termed LOL its just myth never happened with me. For Any help and request [ClickHere](https://discord.gg/aCB6KckK) to join our server.
+#### 247Selfbot / 247Streamer is a bot for your discord account. Yes, selfbots are banned on Discord but This Selfbot is very less detactable. I personally use this selfbot on my Discord Account `mister.perfect`. Usually people say if your account is active more than 1 month You will get termed LOL its just myth never happened with me. For Any help and request Dm me.
 
 # Packages
 #### `discord.js-v11-selfbot`, `discordrpcgenerator`, `gradient-string`, `chalk@4`, `dotenv`, `path`, `fs`
